@@ -8,7 +8,7 @@
 To access the storage, need to add and configure the v0603-storage-dev vlan
 govc vm.network.add \
   -dc=dc \
-  -net "v0603-storage-dev" \
+  -net "v0603" \
   -net.adapter=E1000 \
   -vm ${VM_NAME}
 
