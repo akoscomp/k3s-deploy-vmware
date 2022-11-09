@@ -18,7 +18,9 @@ https://github.com/vmware/govmomi/blob/master/govc/USAGE.md
 
 ### Download flatcar linux from:
 https://lts.release.flatcar-linux.net/amd64-usr/current/
+
 https://lts.release.flatcar-linux.net/amd64-usr/current/flatcar_production_vmware_ova.ovf
+
 https://lts.release.flatcar-linux.net/amd64-usr/current/flatcar_production_vmware_ova_image.vmdk.bz2 (unzip)
 
 ### (Optional) Extract configuration parameters:
