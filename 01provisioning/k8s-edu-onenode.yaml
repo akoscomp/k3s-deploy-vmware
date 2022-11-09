@@ -1,0 +1,80 @@
+---
+storage:
+  files:
+    - path: /etc/hostname
+      mode: 0644
+      contents:
+        inline: edu-onenode
+    - path: /etc/sudoers.d/wheel
+      mode: 0600
+      contents:
+        inline: "%wheel ALL=(ALL) NOPASSWD:ALL"
+    - path: /etc/docker/daemon.json
+      mode: 0644
+      contents:
+        inline: |
+          {
+          "log-driver": "journald",
+          "registry-mirrors": ["https://registry-proxy.internet.ro"]
+          }
+    - path: /etc/modules-load.d/k8s.conf
+      mode: 0644
+      contents:
+        inline: |
+          br_netfilter
+    - path: /etc/sysctl.d/k8s.conf
+      mode: 0644
+      contents:
+        inline: |
+          net.bridge.bridge-nf-call-ip6tables = 1
+          net.bridge.bridge-nf-call-iptables = 1
+
+networkd:
+  units:
+    - name: 00-vmware.network
+      contents: |
+        [Match]
+        Name=ens192
+        [Network]
+        DHCP=no
+        DNS=1.1.1.1
+        DNS=1.0.0.1
+        [Address]
+        Address=18.18.18.231/28
+        [Route]
+        Destination=0.0.0.0/0
+        Gateway=18.18.18.225
+    - name: 01-vmware.network
+      contents: |
+        [Match]
+        Name=ens224
+        [Network]
+        DHCP=no
+        [Address]
+        Address=10.10.225.231/24
+
+passwd:
+  users:
+    - name: akos
+      ssh_authorized_keys:
+        - "ssh-ed25519 "
+      groups:
+        - docker
+        - wheel
+    - name: rancher
+      ssh_authorized_keys:
+        - "ssh-ed25519 "
+        - "ssh-rsa "
+      groups:
+        - docker
+        - wheel
+
+systemd:
+  units:
+    - name: "docker.service"
+      enabled: true
+      dropins:
+        - name: "01-selinux.conf"
+          contents: |
+            [Service]
+            Environment=DOCKER_SELINUX=--selinux-enabled=false

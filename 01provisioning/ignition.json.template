@@ -1,0 +1,110 @@
+{
+  "DiskProvisioning": "flat",
+  "IPAllocationPolicy": "dhcpPolicy",
+  "IPProtocol": "IPv4",
+  "PropertyMapping": [
+    {
+      "Key": "guestinfo.ignition.config.data",
+      "Value": "REPLACEBASE64"
+    },
+    {
+      "Key": "guestinfo.ignition.config.data.encoding",
+      "Value": "base64"
+    },
+    {
+      "Key": "guestinfo.interface.0.ip.0.address",
+      "Value": ""
+    },
+    {
+      "Key": "guestinfo.interface.0.ip.1.address",
+      "Value": ""
+    },
+    {
+      "Key": "guestinfo.interface.0.name",
+      "Value": ""
+    },
+    {
+      "Key": "guestinfo.interface.1.role",
+      "Value": ""
+    },
+    {
+      "Key": "guestinfo.dns.server.1",
+      "Value": ""
+    },
+    {
+      "Key": "guestinfo.dns.server.0",
+      "Value": ""
+    },
+    {
+      "Key": "guestinfo.interface.0.route.0.destination",
+      "Value": ""
+    },
+    {
+      "Key": "guestinfo.interface.1.dhcp",
+      "Value": ""
+    },
+    {
+      "Key": "guestinfo.interface.0.route.1.destination",
+      "Value": ""
+    },
+    {
+      "Key": "guestinfo.interface.1.mac",
+      "Value": ""
+    },
+    {
+      "Key": "guestinfo.ignition.config.url",
+      "Value": ""
+    },
+    {
+      "Key": "guestinfo.interface.0.dhcp",
+      "Value": ""
+    },
+    {
+      "Key": "guestinfo.interface.1.name",
+      "Value": ""
+    },
+    {
+      "Key": "guestinfo.interface.1.route.0.gateway",
+      "Value": ""
+    },
+    {
+      "Key": "guestinfo.interface.0.role",
+      "Value": ""
+    },
+    {
+      "Key": "guestinfo.interface.1.route.0.destination",
+      "Value": ""
+    },
+    {
+      "Key": "guestinfo.hostname",
+      "Value": "k8s-edu-node1"
+    },
+    {
+      "Key": "guestinfo.interface.0.route.1.gateway",
+      "Value": ""
+    },
+    {
+      "Key": "guestinfo.interface.0.route.0.gateway",
+      "Value": ""
+    },
+    {
+      "Key": "guestinfo.interface.0.mac",
+      "Value": ""
+    },
+    {
+      "Key": "guestinfo.interface.1.ip.0.address",
+      "Value": ""
+    }
+  ],
+  "NetworkMapping": [
+    {
+      "Name": "VM Network",
+      "Network": "v0109"
+    }
+  ],
+  "MarkAsTemplate": false,
+  "PowerOn": false,
+  "InjectOvfEnv": false,
+  "WaitForIP": false,
+  "Name": null
+}
